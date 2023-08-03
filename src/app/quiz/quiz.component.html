@@ -1,0 +1,10 @@
+<create-quiz (getQuestions)="addQuestions($event)"></create-quiz>
+<div *ngFor="let item of questionsAnswered$ | async">
+  <question
+    [item]="item"
+    (onSelectedAnswer)="answersSubject$.next($event)"
+  ></question>
+</div>
+<div *ngIf="allQuestionsSelected">
+  <button class="wide" (click)="submit()">Submit</button>
+</div>

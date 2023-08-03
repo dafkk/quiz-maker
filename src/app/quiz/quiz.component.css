@@ -1,0 +1,13 @@
+button {
+	padding: 10px 20px;
+	margin: 8px;
+	border: 2px solid #ccc;
+	border-radius: 6px;
+	background-color: #f5f5f5;
+	color: #333;
+	cursor: pointer;
+}
+
+button.wide {
+	width: 80%;
+}

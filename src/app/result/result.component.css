@@ -1,0 +1,33 @@
+button {
+	padding: 10px 20px;
+	margin: 8px;
+	border: 2px solid #ccc;
+	border-radius: 6px;
+	background-color: #f5f5f5;
+	color: #333;
+	cursor: pointer;
+}
+
+button.wide {
+	width: 80%;
+}
+
+.final-result {
+    align-items: center;
+    padding: 10px;
+    margin: 10px auto;
+    width: 30%;
+    text-align: center;
+  }
+
+  .final-result.red {
+    background-color: red;
+  }
+  
+  .final-result.yellow {
+    background-color: yellow;
+  }
+  
+  .final-result.green {
+    background-color: green;
+  }

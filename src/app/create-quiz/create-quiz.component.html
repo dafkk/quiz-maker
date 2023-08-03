@@ -1,0 +1,31 @@
+<form [formGroup]="quizForm">
+  <select id="categorySelect" formControlName="category">
+    <option value="null" disabled="true" [selected]="true">
+      Select a category
+    </option>
+    <option *ngFor="let item of categoryList$ | async" [value]="item.id">
+      {{ item.name }}
+    </option>
+  </select>
+  <select id="difficultySelect" formControlName="difficulty">
+    <option value="null" disabled="true" [selected]="true">
+      Select difficulty
+    </option>
+    <option *ngFor="let item of difficultyList" [value]="item">
+      {{ item | titlecase }}
+    </option>
+  </select>
+
+  <button
+    id="createBtn"
+    type="submit"
+    title="Create"
+    (click)="create()"
+    class="btn btn-primary btn-sm"
+    [disabled]="
+      !quizForm.get('category')?.value || !quizForm.get('difficulty')?.value
+    "
+  >
+    Create
+  </button>
+</form>

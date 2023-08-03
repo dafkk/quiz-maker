@@ -1,0 +1,14 @@
+<h1>Results</h1>
+<div *ngFor="let item of questionsAnswered">
+  <question [item]="item"></question>
+</div>
+<div>
+  <div class="final-result" [ngClass]="{
+    'red': correctAnswers.length < 2,
+    'yellow': correctAnswers.length >= 2 && correctAnswers.length < 4,
+    'green': correctAnswers.length >= 4
+  }">
+    {{ finalResult }}
+  </div>
+  <button class="wide" routerLink="/quiz">Create a new quiz</button>
+</div>

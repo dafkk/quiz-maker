@@ -1,0 +1,16 @@
+<div [innerHTML]="item.question"></div>
+
+<button
+  *ngFor="let answer of answers"
+  class="answer"
+  [innerHTML]="answer"
+  [ngClass]="{
+    'selected': answer === item.selected,
+    'correct': isResultPage() && answer === item.correct_answer,
+    'wrong':
+      isResultPage() &&
+      answer !== item.correct_answer &&
+      answer === item.selected
+  }"
+  (click)="selectAnswer(answer)"
+></button>
