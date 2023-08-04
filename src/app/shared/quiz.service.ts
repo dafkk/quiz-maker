@@ -44,4 +44,13 @@ export class QuizService {
   getQuestionsAnswered(): Question[] {
     return this.questionsAnsweredSubject$.getValue();
   }
+
+  createDefaultQuestion(): Question {
+    return {
+      question: '',
+      correct_answer: '',
+      incorrect_answers: [],
+      selected: '',
+    };
+  }
 }

@@ -10,7 +10,7 @@ import { QuizService } from '../shared/quiz.service';
 export class ResultComponent implements OnInit {
   questionsAnswered: Question[] = [];
   correctAnswers: Question[] = [];
-  finalResult!: string;
+  finalResult: string = '';
 
   constructor(private quizService: QuizService) {}
 

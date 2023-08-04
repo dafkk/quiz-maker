@@ -11,7 +11,7 @@ import { QuizService } from '../shared/quiz.service';
 export class QuizComponent {
   questionsAnswered$: Observable<Question[]> = of([]);
   answersSubject$: BehaviorSubject<Question> = new BehaviorSubject(
-    this.createDefaultQuestion()
+    this.quizService.createDefaultQuestion()
   );
   allQuestionsSelected = false;
   isListEmpty = true;
@@ -35,14 +35,5 @@ export class QuizComponent {
         this.isListEmpty = updatedQuestions.length === 0;
       })
     );
-  }
-
-  createDefaultQuestion(): Question {
-    return {
-      question: '',
-      correct_answer: '',
-      incorrect_answers: [],
-      selected: '',
-    };
   }
 }

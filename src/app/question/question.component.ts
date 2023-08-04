@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from '../shared/quiz.model';
+import { QuizService } from '../shared/quiz.service';
 
 @Component({
   selector: 'app-question',
@@ -9,12 +10,12 @@ import { Question } from '../shared/quiz.model';
 })
 export class QuestionComponent implements OnInit {
   @Input()
-  item!: Question;
+  item: Question = this.quizService.createDefaultQuestion();
   @Output() selectedAnswer: EventEmitter<Question> = new EventEmitter();
 
   answers: string[] = [];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private quizService: QuizService) {}
 
   ngOnInit(): void {
     this.answers = this.shuffleArray([
