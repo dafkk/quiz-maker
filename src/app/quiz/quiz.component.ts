@@ -4,7 +4,7 @@ import { Question } from '../shared/quiz.model';
 import { QuizService } from '../shared/quiz.service';
 
 @Component({
-  selector: 'quiz',
+  selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
 })
@@ -13,8 +13,8 @@ export class QuizComponent {
   answersSubject$: BehaviorSubject<Question> = new BehaviorSubject(
     this.createDefaultQuestion()
   );
-  allQuestionsSelected: boolean = false;
-  isListEmpty: boolean = true;
+  allQuestionsSelected = false;
+  isListEmpty = true;
   questionsAnswered: Question[] = [];
 
   constructor(private quizService: QuizService) {}

@@ -5,7 +5,7 @@ import { Category, Difficulty, Question } from '../shared/quiz.model';
 import { QuizService } from '../shared/quiz.service';
 
 @Component({
-  selector: 'create-quiz',
+  selector: 'app-create-quiz',
   templateUrl: './create-quiz.component.html',
   styleUrls: ['./create-quiz.component.css'],
 })

@@ -1,9 +1,9 @@
-<create-quiz (getQuestions)="addQuestions($event)"></create-quiz>
+<app-create-quiz (getQuestions)="addQuestions($event)"></app-create-quiz>
 <div *ngFor="let item of questionsAnswered$ | async as items">
-  <question
+  <app-question
     [item]="item"
-    (onSelectedAnswer)="answersSubject$.next($event)"
-  ></question>
+    (selectedAnswer)="answersSubject$.next($event)"
+  ></app-question>
 </div>
 <div class="emptyList" *ngIf="isListEmpty">
   <div class="emptyList-content">

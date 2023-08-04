@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 import { Question } from '../shared/quiz.model';
 
 @Component({
-  selector: 'question',
+  selector: 'app-question',
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css'],
 })
 export class QuestionComponent implements OnInit {
   @Input()
   item!: Question;
-  @Output() onSelectedAnswer: EventEmitter<Question> = new EventEmitter();
+  @Output() selectedAnswer: EventEmitter<Question> = new EventEmitter();
 
   answers: string[] = [];
 
@@ -25,7 +25,7 @@ export class QuestionComponent implements OnInit {
 
   selectAnswer(answer: string) {
     this.item.selected = answer;
-    this.onSelectedAnswer.emit(this.item);
+    this.selectedAnswer.emit(this.item);
   }
 
   isResultPage(): boolean {

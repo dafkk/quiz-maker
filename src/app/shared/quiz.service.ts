@@ -13,7 +13,7 @@ import {
   providedIn: 'root',
 })
 export class QuizService {
-  private apiURL: string = 'https://opentdb.com';
+  private apiURL = 'https://opentdb.com';
   questionsAnsweredSubject$: BehaviorSubject<Question[]> = new BehaviorSubject<
     Question[]
   >([]);
