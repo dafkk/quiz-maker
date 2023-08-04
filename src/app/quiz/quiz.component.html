@@ -1,10 +1,18 @@
 <create-quiz (getQuestions)="addQuestions($event)"></create-quiz>
-<div *ngFor="let item of questionsAnswered$ | async">
+<div *ngFor="let item of questionsAnswered$ | async as items">
   <question
     [item]="item"
     (onSelectedAnswer)="answersSubject$.next($event)"
   ></question>
 </div>
-<div *ngIf="allQuestionsSelected">
-  <button class="wide" (click)="submit()">Submit</button>
+<div class="emptyList" *ngIf="isListEmpty">
+  <div class="emptyList-content">
+    <h2>No questions available</h2>
+    <p>
+      Please select a trivia category and difficulty level to load questions.
+    </p>
+  </div>
+</div>
+<div *ngIf="allQuestionsSelected && !isListEmpty">
+  <button class="wide" routerLink="/result">Submit</button>
 </div>

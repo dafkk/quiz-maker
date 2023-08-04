@@ -13,10 +13,10 @@ button.wide {
 }
 
 .final-result {
-    align-items: center;
     padding: 10px;
-    margin: 10px auto;
+    margin: 10px;
     width: 30%;
+    color: white;
     text-align: center;
   }
 
@@ -25,6 +25,7 @@ button.wide {
   }
   
   .final-result.yellow {
+    color: #333;
     background-color: yellow;
   }
   

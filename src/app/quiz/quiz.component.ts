@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, combineLatest, map, of, tap } from 'rxjs';
 import { Question } from '../shared/quiz.model';
 import { QuizService } from '../shared/quiz.service';
@@ -15,9 +14,10 @@ export class QuizComponent {
     this.createDefaultQuestion()
   );
   allQuestionsSelected: boolean = false;
+  isListEmpty: boolean = true;
   questionsAnswered: Question[] = [];
 
-  constructor(private router: Router, private quizService: QuizService) {}
+  constructor(private quizService: QuizService) {}
 
   addQuestions(questions: Observable<Question[]>) {
     this.questionsAnswered$ = combineLatest([
@@ -32,13 +32,9 @@ export class QuizComponent {
       tap((updatedQuestions) => {
         this.quizService.updateQuestionsAnswered(updatedQuestions);
         this.allQuestionsSelected = updatedQuestions.every((q) => q.selected);
+        this.isListEmpty = updatedQuestions.length === 0;
       })
     );
-  }
-
-  submit() {
-    // this.quizService.updateQuestionsAnswered(this.questionsAnswered$);
-    this.router.navigate(['/result']);
   }
 
   createDefaultQuestion(): Question {
